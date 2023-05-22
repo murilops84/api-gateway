@@ -1,0 +1,38 @@
+server:
+  port: 9999
+  servlet:
+    context-path: "/api-gateway/v1"
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: iply84m2
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        show_sql: true
+    hibernate:
+      ddl-auto: update
+
+  kafka:
+    producer:
+      bootstrap-servers: localhost:9092
+      group-id: sender
+
+auto:
+  create:
+    topics:
+      enable: true
+
+management:
+  endpoint:
+    health:
+      show-details: always
+
+logging:
+  level:
+    br:
+      com:
+        mps: DEBUG
